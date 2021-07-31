@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<title>OSI Model</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../blog_style.css">
+<link rel="stylesheet" href="../google_fonts.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="light-grey">
+
+<!-- content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="container center padding-32"> 
+  <h1><b>OSI NETWORKING REFERENCE MODEL</b></h1>
+  <p>Welcome to the blog of <span class="tag">Networking Reference Model</span></p>
+</header>
+
+<!-- Grid -->
+<div class="row">
+
+<!-- Blog entries -->
+<div class="col l8 s12">
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+    <img src="header.jpg" alt="OSI model" style="width:100%">
+    <div class="container">
+      <h3><b>OSI MODEL</b></h3>
+      <h5>Basics of the OSI Networking Reference Model, <span class="opacity">July 16, 2021</span></h5>
+    </div>
+
+    <div class="container">
+      <p>The <b>OSI Model (Open Systems Interconnection Model)</b> is a conceptual framework used to describe the functions of a networking system. The OSI model characterizes computing functions into a universal set of rules and requirements in order to support interoperability between different products and software.</p>
+      <p>The OSI reference model was developed by the <b>ISO (International Organisation for Standardisation)</b> and was included in the ISO 7489 standard and released in 1984.</p>
+      <p>In the OSI reference model, the communications between a computing system are split into seven different abstraction layers:</p>
+      <ol>
+        <li><b>Physical Layer</b> - The lowest layer of the OSI Model. It is concerned with electrically or optically transmitting raw unstructured data bits across the network from the physical layer of the sending device to the physical layer of the receiving device.</li>
+        <li><b>Data Link Layer</b> - In this layer, directly connected nodes are used to perform node-to-node data transfer where data is packaged into frames. The data link layer also corrects errors that may have occurred at the physical layer.</li>
+        <li><b>Network Layer</b> - defines logical addresses for routers to determine paths and transmits data from source networks to destination networks.</li>
+        <li><b>Transport Layer</b> - implements connection-oriented and non-connection-oriented data transmission, as well as error checking before retransmission.</li>
+        <li><b>Session Layer</b> - controls the conversations between different computers. A session or connection between machines is set up, managed, and termined at layer 5.</li>
+        <li><b>Presentation Layer</b> - formats or translates data for the application layer based on the syntax or semantics that the application accepts. Because of this, it at times also called the syntax layer. This layer can also handle the encryption and decryption required by the application layer.</li>
+        <li><b>Application Layer</b> - provides network services for applications and the OSI layer closest to end users.</li>
+      </ol>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+  <img src="TCP_IP_model.jpg" alt="TCP/IP Reference Model" style="width:100%">
+    <div class="container">
+      <h3><b>TCP/IP Reference Model</b></h3>
+      <h5>How the TCP/IP model is related to the OSI model, <span class="opacity">July 16, 2021</span></h5>
+    </div>
+
+    <div class="container">
+        <p>The OSI protocol stack is complex, and the TCP and IP protocols are widely used in the industry. Therefore, the TCP/IP reference model becomes the mainstream reference model of the Internet.</p>
+        <p>The TCP/IP model is similar to the OSI model in structure in that it adopts a hierarchical architecture and adjacent TCP/IP layers are closely related.</p>
+        <p>In the TCP/IP model, the session, presentation and application OSI layers are combined to form the Application layer.</p>
+        <p>The standard TCP/IP model combines the data link layer and physical layer in the OSI model into the network access layer. This division mode is contrary to the actual protocol formulation.</p>
+        <p>The common TCP/IP protocols include: </p>
+        <ol>
+            <li><b>Physical Layer</b> - Specifications (eg voltages, speeds, cables, pins and interfaces) are defined here.</li>
+            <li><b>Data Link Layer</b> - Ethernet, PPP(Point-to-Point Protocol), PPPoE(Point-to-Point Protocol over Ethernet).</li>
+            <li><b>Network Layer</b> - IP(Internet Protocol), ICMP(Internet Control Message Protocol), IGMP(Internet Group Management Protocol).</li>
+            <li><b>Transport Layer</b> - TCP(Transport Control Protocol), UDP(User Datagram Protocol).</li>
+            <li><b>Application Layer</b> - HTTP(HyperText Transfer Protocol), Telnet(Teletype Network), FTP(File Transfer Network), SSH(Secure SHell), SMTP(Simple Mail Transfer Protocol), TFTP(Trivial File Transfer Protocol), DNS(Domain Name System), DHCP(Dynamic Host Configuration Protocol), SNMP(Simple Network Management Protocol).</li>
+        </ol>
+    </div>
+  </div>
+<!-- END BLOG ENTRIES -->
+</div>
+
+<!-- Introduction menu -->
+<div class="col l4">
+  <!-- About Card -->
+  <a href = "https://alvynez.github.io"  target="_blank" style="text-decoration: none;">
+    <div class="card margin margin-top">
+        <img src="../avatar.jpg" style="width:100%">
+        <div class="container white">
+            <h4><b>Alvyne Wamwea Mwaniki</b></h4>
+            <p></p>
+        </div>
+    </div>
+  </a>
+  <hr>
+  
+  <!-- Posts -->
+  <div class="card margin">
+    <div class="container padding">
+      <h4>Other Posts</h4>
+    </div>
+    <ul class="ul hoverable white">
+      <a href = "https://alvynez.github.io/blogs/version_control/version_control.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../version_control/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">Version Control</span><br>
+            <span>Git vs Github</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/microcontrollers/microcontrollers.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+              <img src="../microcontrollers/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+              <span class="large">Microcontrollers</span><br>
+              <span>Microcontrollers vs microprocessors</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/2_factor_authentication/2_factor_authentication.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../2_factor_authentication/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">2 Factor Authentication</span><br>
+            <span>What is 2FA</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/iot_networking/iot_networking.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../iot_networking/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">IoT Networks</span><br>
+            <span>IoT Networking and Communication</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/gsm_and_gprs/gsm_and_gprs.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../gsm_and_gprs/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">GSM and GPRS</span><br>
+            <span>Basics of GSM, How SMS & calls are mapped</span>
+          </div>
+        </li>
+      </a>
+    </ul>
+  </div>
+  <hr> 
+ 
+  <!-- Labels / tags -->
+  <div class="card margin">
+    <div class="container padding">
+      <h4>Tags</h4>
+    </div>
+    <div class="container white">
+    <p><span class="tag light-grey small margin-bottom">OSI</span>
+      <span class="tag light-grey small margin-bottom">Networking</span>
+      <span class="tag light-grey small margin-bottom">Network Reference Model</span>
+      <span class="tag light-grey small margin-bottom">TCP/IP</span>
+      <span class="tag light-grey small margin-bottom">Network Layers</span>
+    </p>
+    </div>
+  </div>
+  
+<!-- END Introduction Menu -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END content -->
+</div>
+
+<!-- Footer -->
+<footer class="container dark-grey padding-32 margin-top">
+  <p>Research Work done while at <a href="https://www.gearbox.co.ke/" target="_blank">Gearbox Kenya</a></p>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<title>Microcontrollers</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../blog_style.css">
+<link rel="stylesheet" href="../google_fonts.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="light-grey">
+
+<!-- content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="container center padding-32"> 
+  <h1><b>MICROCONTROLLERS</b></h1>
+  <p>Welcome to the blog of <span class="tag">Microcontrollers vs Microprocessors</span></p>
+</header>
+
+<!-- Grid -->
+<div class="row">
+
+<!-- Blog entries -->
+<div class="col l8 s12">
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+    <img src="header.jpg" alt="Computing" style="width:100%">
+    <div class="container">
+      <h3><b>COMPUTING</b></h3>
+      <h5>Classification of computers, <span class="opacity">July 7, 2021</span></h5>
+    </div>
+
+    <div class="container">
+      <p>A <b>computer</b> is an electric machine that can be programmed to carry out sequences of arithmetic or logical operations automatically. The 4 main basic functions of a computer are: Input, Storage, Processing and Output.</p>
+      <p>Computers can be classified on many different basis. The classification based on the purpose of the computer is as follows:</p>
+      <ul>
+          <li><b>General Purpose</b> - These are designed to be capable of carrying out multiple everyday tasks (eg word processing, video playback, and web browsing). They are designed with versitility in mind. Examples of General-purpose computers: Desktops, laptops, and phones.</li>
+          <li><b>Special Purpose</b> - These are designed to perform a particular or specialized task. The size, storage capacity, and cost of such computers mainly depend on the nature and size of the work. Examples of Special-purpose computers: ATM, Traffic control systems and washing machines.</li>
+      </ul>
+      <p><b>Embedded Systems</b> are a type of special-purpose computer that have the computer system controlling another system. For example in a washing machine, a computer system is required to control the motor of the machine and to control the timings.</p>
+      <p>Independent of the function, all computers will have the following major components:</p>
+      <ul>
+        <li>Microprocessor <span class="opacity">- The brain of the computer system where all the data processing takes place.</span></li>
+        <li>Input and Output Devices <span class="opacity">- So as to get data from the user or controlled system and return information to the user or contolling signals.</span></li>
+        <li>Storage/Memory <span class="opacity">- For intermediate and permanent storage of data/information</span></li>
+        <li>Bus system <span class="opacity">- For connecting all the components to the heart of the system (microprocessor).</span></li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+  <img src="microprocessor.jpg" alt="Microprocessor" style="width:100%">
+    <div class="container">
+      <h3><b>MICROPROCESSOR</b></h3>
+      <h5>What is a microprocessor, <span class="opacity">July 7, 2021</span></h5>
+    </div>
+
+    <div class="container">
+        <p>A <b>microprocessor or MPU or CPU(Central Processing Uint)</b> is the brain of the computer. It is <b>NOT a standalone</b> component, in that it cannot function on its own. For it to fulfill its function, it needs to be connected to memory(RAM & ROM), and the I/O devices.</p>
+        <p>Microprocessors generally have three basic parts: </p>
+        <ul>
+          <li>Control Unit <span class="opacity">- responsible for controlling and coordinating all the components of the computer</span></li>
+          <li>Registers and Cache <span class="opacity">- Small size of very fast memory required for temporary storage of data for operations to be carried out</span></li>
+          <li>ALU (Arithmetic and Logic Unit) <span class="opacity">- Responsible for the actual arithmetic and logical operations (such as addition, multiplication and comparisons) to be carried out on datan</span></li>
+        </ul>
+        <p>The two major <b>types</b> of microprocessors include:</p>
+        <ul>
+          <li>CISC (Complex Instruction Set Computing) <span class="opacity">- designed to complete a task in as few lines of assembly as possible by having instructions that execute multiple operations (eg x86 processors)</span></li>
+          <li>RISC (Reduced Instruction Set Computing) <span class="opacity">- designed to use simple instructions that can be executed within one clock cycle (eg ARM processors)</span></li>
+        </ul>
+        <p>The top five consumer microprocessor <b>producers globally</b> include:</p>
+        <ul>
+            <li>Intel <span class="opacity">- known for their "core i_" lineup</span></li>
+            <li>AMD <span class="opacity">- known most recently for their "Ryzen" lineup</span></li>
+            <li>Qualcomm <span class="opacity">- known for their "Snapdragon" lineup</span></li>
+            <li>Apple <span class="opacity">- known for their "A_" iPhone chip lineup</span></li>
+            <li>Samsung <span class="opacity">- known for their "Exynos" lineup</span></li>
+        </ul>
+        <p>The top five consumer <b>microprocessors in Kenya</b> include:</p>
+        <ul>
+            <li>Intel core i3 lineup</li>
+            <li>Intel Core i5 lineup</li>
+            <li>MediaTek Helio lineup</li>
+            <li>Apple A lineup</li>
+            <li>Qualcomm Snapdragon lineup</li>
+        </ul>
+    </div>
+  </div>
+
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+  <img src="microcontroller.jpg" alt="Microcontroller" style="width:100%">
+    <div class="container">
+      <h3><b>MICROCONTROLLER</b></h3>
+      <h5>What is a microcontroller, <span class="opacity">July 7, 2021</span></h5>
+    </div>
+
+    <div class="container">
+        <p>A <b>microcontroller</b> is a System on Chip(SoC) which is used to control a specific function. Unlike a microprocessor, a microcontroller is a standalone device. It has in it a CPU, ROM, RAM, I/O and any other required component for it to fully function on its own.</p>
+        <p>Because a microcontroller is designed to execute a specific set of functions only, the data handled is small, and thus it normally has reduced specifications.</p>
+        <p>Microcontrollers are what are used to design and build embedded systems. To reduce costs, the embedded systems designer selects components with just the required specifications. Unlike in a general purpose-computer, future-proofing is not considered.</p>
+        <p>The top five microcontroller <b>producers globally</b> include:</p>
+        <ul>
+            <li>Microchip <span class="opacity">- (own Atmel) produce both AVR and ARM microcontrollers</span></li>
+            <li>NXP <span class="opacity">- have a broad portfolio of MCUs sold to multiple companies from Apple, Samsung and to the automotive industry</span></li>
+            <li>Renesas <span class="opacity">- produce the RA and RX MCU families</span></li>
+            <li>Silicon Labs <span class="opacity">- produce the EFM MCUs</span></li>
+            <li>Infineon <span class="opacity">- market leader in automotive and power semiconductors</span></li>
+        </ul>
+        <p>The top five <b>microcontrollers in Kenya</b> include:</p>
+        <ul>
+            <li>Intel core i3 lineup</li>
+            <li>Intel Core i5 lineup</li>
+            <li>MediaTek Helio lineup</li>
+            <li>Apple A lineup</li>
+            <li>Qualcomm Snapdragon lineup</li>
+        </ul>
+    </div>
+  </div>
+<!-- END BLOG ENTRIES -->
+</div>
+
+<!-- Introduction menu -->
+<div class="col l4">
+  <!-- About Card -->
+  <a href = "https://alvynez.github.io"  target="_blank" style="text-decoration: none;">
+    <div class="card margin margin-top">
+        <img src="../avatar.jpg" style="width:100%">
+        <div class="container white">
+            <h4><b>Alvyne Wamwea Mwaniki</b></h4>
+            <p></p>
+        </div>
+    </div>
+  </a>
+  <hr>
+  
+  <!-- Posts -->
+  <div class="card margin">
+    <div class="container padding">
+      <h4>Other Posts</h4>
+    </div>
+    <ul class="ul hoverable white">
+      <a href = "https://alvynez.github.io/blogs/version_control/version_control.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../version_control/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">Version Control</span><br>
+            <span>Git vs Github</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/2_factor_authentication/2_factor_authentication.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../2_factor_authentication/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">2 Factor Authentication</span><br>
+            <span>What is 2FA</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/iot_networking/iot_networking.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../iot_networking/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">IoT Networks</span><br>
+            <span>IoT Networking and Communication</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/osi_model/osi_model.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+              <img src="../osi_model/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">OSI Model</span><br>
+            <span>Basics of the OSI Networking Reference Model</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/gsm_and_gprs/gsm_and_gprs.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../gsm_and_gprs/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">GSM and GPRS</span><br>
+            <span>Basics of GSM, How SMS & calls are mapped</span>
+          </div>
+        </li>
+      </a>
+    </ul>
+  </div>
+  <hr> 
+ 
+  <!-- Labels / tags -->
+  <div class="card margin">
+    <div class="container padding">
+      <h4>Tags</h4>
+    </div>
+    <div class="container white">
+    <p><span class="tag light-grey small margin-bottom">CPU</span>
+      <span class="tag light-grey small margin-bottom">MPU</span>
+      <span class="tag light-grey small margin-bottom">Microprocessor</span>
+      <span class="tag light-grey small margin-bottom">MCU</span>
+      <span class="tag light-grey small margin-bottom">Microcontroller</span>
+    </p>
+    </div>
+  </div>
+  
+<!-- END Introduction Menu -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END content -->
+</div>
+
+<!-- Footer -->
+<footer class="container dark-grey padding-32 margin-top">
+  <p>Research Work done while at <a href="https://www.gearbox.co.ke/" target="_blank">Gearbox Kenya</a></p>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<title>Version Control</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../blog_style.css">
+<link rel="stylesheet" href="../google_fonts.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="light-grey">
+
+<!-- content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="container center padding-32"> 
+  <h1><b>VERSION CONTROL</b></h1>
+  <p>Welcome to the blog of <span class="tag">Git vs Github</span></p>
+</header>
+
+<!-- Grid -->
+<div class="row">
+
+<!-- Blog entries -->
+<div class="col l8 s12">
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+    <img src="header.jpg" alt="Version Control" style="width:100%">
+    <div class="container">
+      <h3><b>VERSION CONTROL</b></h3>
+      <h5>An explanation of what Version Control is, <span class="opacity">July 5, 2021</span></h5>
+    </div>
+
+    <div class="container">
+      <p><b>Version Control</b>, also known as source control, is the practice of tracking and managing changes to software code.</p>
+      <p><b>Version control systems</b> are software tools that help software teams manage changes to source code over time. They are especially useful for DevOps teams since they help them to reduce development time and increase successful deployments.</p>
+      <p>Version control software keeps track of every modification to the code in a special kind of database. If a mistake is made, developers can <b>turn back the clock</b> and compare earlier versions of the code to help fix the mistake while minimizing disruption to all team members.</p>
+      <p>When working in teams, software developers have different tasks, but need to work on the same code base. The code for a project, app or software component is typically organized in a folder structure or "file tree". One developer on the team may be working on a new feature while another developer fixes an unrelated bug by changing code, each developer may make their changes in several parts of the file tree.</p>
+      <p>Some of the functions of Version Control Software include:</p>
+      <ul>
+          <li>Version Control comes in to keep track of every individual change made.</li>
+          <li>It helps coordinate the merging together of the different editted files into the project.</li>
+          <li>It helps prevent concurrent work from conflicting when merged back into the entire project.</li>
+      </ul>
+      <p>Some examples of version control systems (VCS) include:</p>
+      <ul>
+          <li>Git <span class="opacity">Initial Release: 2005</span></li>
+          <li>Apache Subversion <span class="opacity">Initial Release: 2000</span></li>
+          <li>Mercurial <span class="opacity">Initial Release: 2005</span></li>
+          <li>Azure DevOps Server <span class="opacity">Stable Release: 2020</span></li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+  <img src="Git-Logo.png" alt="Git logo" style="width:100%">
+    <div class="container">
+      <h3><b>GIT</b></h3>
+      <h5>What is git, <span class="opacity">July 5, 2021</span></h5>
+    </div>
+
+    <div class="container">
+      <p>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.</p>
+      <p>Git was created by Linus Torvalds in 2005 for development of the Linux kernel, with other kernel developers contributing to its initial development.</p>
+      <p>Git Install instructions: <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Get Git!</a></p>
+      <br>
+      <div class="card margin">
+        <img src="git-areas.png" alt="Git areas" style="width:100%">
+      </div>
+      <h4>GIT COMMANDS</h4>
+      <p>To check version of git installed (It will also confirm that git is installed properly):</p>
+      <div class="container margin light-grey">
+        <p><b>$</b>&emsp;&emsp;git&ensp;--version</p>
+      </div>
+      <p>To add a local git repository (the .git repository) to your current directory:</p>
+      <div class="container margin light-grey">
+        <p><b>$</b>&emsp;&emsp;git&ensp;init</p>
+      </div>
+      <br>
+      <p><b>Checking in: </b>This is the process of uploading code to the master branch for an admin to check and update the project. It involves staging and committing.</p>
+      <p><b>Staging: </b>This is the required intermediate step in checking in a file, and involves collecting the changes to be added to the repository. This allows for logically different changes to different files to be added to the repository in different commits.</p>
+      <p>To stage files before committing to the repository, the files(eg "fileName1.txt" and "fileName2.html") are added to the staging area: </p>
+      <div class="container margin light-grey">
+        <p><b>$</b>&emsp;&emsp;git&ensp;add&ensp;fileName1.txt&ensp;fileName2.html</p>
+      </div>
+      <p><b>Committing: </b>Capturing a snapshot of the project's currently staged changes. These versions can be thought of as "safe" versions of the code. When troubleshooting problems, changes between commits are to be looked into.</p>
+      <p>To commit changes in the staging area and adding a commit message(eg "Added feature XYZ"): </p>
+      <div class="container margin light-grey">
+        <p><b>$</b>&emsp;&emsp;git&ensp;commit&ensp;-m&ensp;"Added feature XYZ"</p>
+      </div>
+      <p><b>Status: </b>It is sometimes necessary to know what files are staged and ready for committing. If any changes have been made to the files and need to be added to the staging area. if the git repository is up-to-date... And many more. This is done by checking the status.</p>
+      <p>To check the status of the git repository: </p>
+      <div class="container margin light-grey">
+        <p><b>$</b>&emsp;&emsp;git&ensp;status</p>
+      </div>
+      <br>
+      <p><b>Branching: </b>A branch is nothing but a pointer to the latest commit in the Git repository. Branching is used to support multiple parallel developments. Especially when testing in order to avoid causing problems with the main code base.</p>
+      <p>Creating a new branch (eg "branchName"):</p>
+      <div class="container margin light-grey">
+        <p><b>$</b>&emsp;&emsp;git&ensp;branch&ensp;branchName</p>
+      </div>
+      <p>Switching a different branch (eg "branchName"):</p>
+      <div class="container margin light-grey">
+        <p><b>$</b>&emsp;&emsp;git&ensp;checkout&ensp;branchName</p>
+      </div>
+      <p>Listing all the branches::</p>
+      <div class="container margin light-grey">
+        <p><b>$</b>&emsp;&emsp;git&ensp;branch</p>
+      </div>
+      <br>
+      <p><b>Merging: </b>After a branch has diverged from the master branch(ie the two branches have different code), the code of the second branch can be brought back. This is called merging.</p>
+      <p>To merge a branch back to the master branch, call the checkout command from the master branch:</p>
+      <div class="container margin light-grey">
+        <p><b>$</b>&emsp;&emsp;git&ensp;checkout&ensp;master</p>
+        <p><b>$</b>&emsp;&emsp;git&ensp;merge&ensp;branchName</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+  <img src="git_&_github.png" alt="Git and Github" style="width:100%">
+    <div class="container">
+      <h3><b>GITHUB</b></h3>
+      <h5>Github as a remote git repository, <span class="opacity">July 5, 2021</span></h5>
+    </div>
+
+    <div class="container">
+      <p>Github is a provider of internet hosting for softwre development. It allows developers to store their projects online.</p>
+      <p>Github is highly integrated with git(the command-line tool installed on the developer's machine), allowing the software developer to have access to remote repositories.</p>
+      <p>Each developer will work in their local repository but eventually, they will push the code into a remote repository. Once the code is in the remote repository, other developers can see and modify that code (as illustrated)</p>
+      <p>Create a github account: <a href="https://github.com/">Join Github!</a></p>
+      <br>
+      <h4>GIT REMOTE REPO COMMANDS</h4>
+      <p>Pointing the local repository to a remote repository and naming the remote repository( name: "origin"):</p>
+      <div class="container margin light-grey">
+        <p><b>$</b>&emsp;&emsp;git&ensp;remote&ensp;add&ensp;origin&ensp;[remote repo URL]</p>
+      </div>
+      <p>Pushing all the code from the local repository (master branch) into the remote repository(previously created "origin"):</p>
+      <div class="container margin light-grey">
+        <p><b>$</b>&emsp;&emsp;git&ensp;push&ensp;-u&ensp;origin&ensp;master</p>
+      </div>
+      <p>Pulling the latest changes from the remote repository into the local repository:</p>
+      <div class="container margin light-grey">
+        <p><b>$</b>&emsp;&emsp;git&ensp;pull&ensp;origin&ensp;master</p>
+      </div>
+      <p>Cloning an existing remote repository into your computer:</p>
+      <div class="container margin light-grey">
+        <p><b>$</b>&emsp;&emsp;git&ensp;clone&ensp;[remote repo URL]</p>
+      </div>
+    </div>
+  </div>
+<!-- END BLOG ENTRIES -->
+</div>
+
+<!-- Introduction menu -->
+<div class="col l4">
+  <!-- About Card -->
+  <a href = "https://alvynez.github.io"  target="_blank" style="text-decoration: none;">
+    <div class="card margin margin-top">
+        <img src="../avatar.jpg" style="width:100%">
+        <div class="container white">
+            <h4><b>Alvyne Wamwea Mwaniki</b></h4>
+            <p></p>
+        </div>
+    </div>
+  </a>
+  <hr>
+  
+  <!-- Posts -->
+  <div class="card margin">
+    <div class="container padding">
+      <h4>Other Posts</h4>
+    </div>
+    <ul class="ul hoverable white">
+      <a href = "https://alvynez.github.io/blogs/microcontrollers/microcontrollers.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../microcontrollers/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">Microcontrollers</span><br>
+            <span>Microcontrollers vs microprocessors</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/2_factor_authentication/2_factor_authentication.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../2_factor_authentication/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">2 Factor Authentication</span><br>
+            <span>What is 2FA</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/iot_networking/iot_networking.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../iot_networking/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">IoT Networks</span><br>
+            <span>IoT Networking and Communication</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/osi_model/osi_model.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+              <img src="../osi_model/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">OSI Model</span><br>
+            <span>Basics of the OSI Networking Reference Model</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/gsm_and_gprs/gsm_and_gprs.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../gsm_and_gprs/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">GSM and GPRS</span><br>
+            <span>Basics of GSM, How SMS & calls are mapped</span>
+          </div>
+        </li>
+      </a>
+    </ul>
+  </div>
+  <hr> 
+ 
+  <!-- Labels / tags -->
+  <div class="card margin">
+    <div class="container padding">
+      <h4>Tags</h4>
+    </div>
+    <div class="container white">
+    <p><span class="tag light-grey small margin-bottom">Git</span>
+      <span class="tag light-grey small margin-bottom">Github</span>
+      <span class="tag light-grey small margin-bottom">Version Control</span>
+      <span class="tag light-grey small margin-bottom">VCS</span>
+      <span class="tag light-grey small margin-bottom">Git commands</span>
+    </p>
+    </div>
+  </div>
+  
+<!-- END Introduction Menu -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END content -->
+</div>
+
+<!-- Footer -->
+<footer class="container dark-grey padding-32 margin-top">
+  <p>Research Work done while at <a href="https://www.gearbox.co.ke/" target="_blank">Gearbox Kenya</a></p>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+</body>
+</html>

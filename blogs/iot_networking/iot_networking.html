@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<title>IoT Networking</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../blog_style.css">
+<link rel="stylesheet" href="../google_fonts.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="light-grey">
+
+<!-- content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="container center padding-32"> 
+  <h1><b>IOT NETWORKING</b></h1>
+  <p>Welcome to the blog of <span class="tag">Communication Protocols in IoT</span></p>
+</header>
+
+<!-- Grid -->
+<div class="row">
+
+<!-- Blog entries -->
+<div class="col l8 s12">
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+    <img src="header.jpg" alt="IoT" style="width:100%">
+    <div class="container">
+      <h3><b>IOT</b></h3>
+      <h5>What is IoT, <span class="opacity">Jul 16, 2021</span></h5>
+    </div>
+
+    <div class="container">
+      <p>The <b>Internet of things (IoT)</b> describes the network of physical objects—a.k.a. "things"—that are embedded with sensors, software, and other technologies for the purpose of connecting and exchanging data with other devices and systems over the Internet. In the consumer market, IoT technology is most synonymous with products pertaining to the concept of the "smart home".</p>
+      <p>Pretty much any physical object can be transformed into an IoT device if it can be connected to the internet to be controlled or communicate information.</p>
+      <p>In order to make an IoT device, the following are required:</p>
+      <ul>
+          <li><b>Embedded system</b> - (normally a microcontroller) is required to interact with the physical object. It is responsible for collecting sensor data if any and controlling the object.</li>
+          <li><b>Communication system</b> - is required for sending collected data over the internet and to receive commands from the user to control the object.</li>
+      </ul>
+      <p>The networking of the systems is an integral part of IoT. There are many different technologies that can be used to connect the different devices, for example:</p>
+      <ul>
+        <li>Cellular <span class="opacity">- GSM(Global Service for Mobile), 2G, 3G and 4G technologies.</span></li>
+        <li>WiFi (Wireless-Fidelity) <span class="opacity">- utilizes the IEEE 802.11 standard through 2.4GhZ UHF(Ultra High Frequency)) and 5GhZ ISM(Industrial Scientific and Medical) frequencies</span></li>
+        <li>Bluetooth <span class="opacity">- works on the same 2.4GHz UHF band as WiFi but it has a lower bandwidth. This encopmasses both the standard Bluetooth and BLE(Bluetooth Low Energy).</span></li>
+        <li>Radio Frequency <span class="opacity">- Operate on the ISM RF bands. Protocols like ZigBee(IEEE 802.15.4 standard) or ZWave use a low-power RF radio embedded or retrofitted into electronic devices and systems.</span></li>
+        <li>NFC (Near Field Communication) <span class="opacity">- operates on the unlicensed radio frequency ISM band of 13.56 MHz on ISO/IEC 18000-3 air interface. NFC involves an initiator and a target; the initiator actively generates an RF field that can power a passive target (an unpowered chip called a “tag”). It uses electromagnetic induction between two loop antennas located within each other’s near field, effectively forming an air-core transformer.</span></li>
+        <li>LoRa (Long Range) <span class="opacity">- low-power spread spectrum modulation technique derived from chirp spread spectrum (CSS) technology.</span></li>
+      </ul>
+      <p>Once the devices are interconnected, it is necessary for them to have a common "language" that all the devices in a given IoT ecosystem would share and be able to use for them to understand each other. Here is where the protocol comes in.</p>
+      <p>Communication <b>protocols</b> are formal descriptions of digital message formats and rules. They are required to exchange messages in or between computing systems. Some protocols used in IoT communication include:</p>
+      <ul>
+        <li>Raw sockets (UDP and TCP)</li>
+        <li>HTTP (HyperText Transfer Protocol)</li>
+        <li>MQTT (Message Queuing Telemetry Transport)</li>
+        <li>CoAP (Constrained Application Protocol)</li>
+        <li>XMPP (Extensible Messaging and Presence Protocol)</li>
+        <li>AMQP (Advanced Message Queuing Protocol)</li>
+        <li>LWM2M (Lightweight Machine to Machine)</li>
+        <li>Websockets</li>
+      </ul>
+      <p>The protocol defines how data is sent and received, but it does not define how the data is structured. This is done using a particular software architectural pattern. An <b>architectural pattern</b> is a general, reusable solution to a commonly occurring problem in software architecture within a given context. Examples include:</p>
+      <ul>
+        <li>REST(REpresentational State Transfer) API</li>
+        <li>GraphQL API</li>
+        <li>Falcor API</li>
+        <li>JSON-Pure API</li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+  <img src="tcp_vs_udp.jpg" alt="Connections - TCP vs UDP" style="width:100%">
+    <div class="container">
+      <h3><b>RAW UDP AND TCP</b></h3>
+      <h5>What is UDP and TCP, <span class="opacity">July 16, 2021</span></h5>
+    </div>
+
+    <div class="container">
+        <p><b>UDP(User Datagram Protocol)</b> is a connectionless type of protocol such that the two communicating parties do not have to set up a connection before sending data among each other. The protocol is also very lightweight and speedy since its headers are very small (8 bytes). Though the protocol is not very reliable as it does not ensure the reception of sent packets.</p>
+        <p><b>TCP(Transport Control Protocol)</b> is a connection oriented protocol such that the two parties have to set up a connection (using the three way handshake) before any data is sent between them. The headers are bigger than those of UDP at 20 bytes, making it slower and heavier. The protocol is reliable as it ensures delivery of packets.</p>
+        <div class="card margin">
+          <img src="transport_layer-TCP_UDP.jpg" alt="TCP and UDP in OSI" style="width:100%">
+        </div>
+        <p><b>UDP</b> and <b>TCP</b> are transport layer protocols that provide applications with a way of packaging and sending data.</p>
+        <p>Normally, application layer protocols are built to rely on one of the two transport protocols. However, it is also possible to directly access raw data sockets that directly use the aforementioned transport layer protocols. This would involve making a custom application-layer protocol to define and differentiate between the requests and responses.</p>
+        <p>Other differences between UDP and TCP are illustrated below</p>
+        <div class="card margin">
+          <img src="tcp_vs_udp_differences.jpg" alt="TCP and UDP differences" style="width:100%">
+        </div>
+    </div>
+  </div>
+
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+  <img src="rest.png" alt="REST API" style="width:100%">
+    <div class="container">
+      <h3><b>REST API</b></h3>
+      <h5>What is a REST API, <span class="opacity">July 16, 2021</span></h5>
+    </div>
+
+    <div class="container">
+        <p>An <b>API (Application Programming Interface)</b> is a set of rules that defines how applications or devices can connect to and communicate with each other.</p>
+        <p>A <b>REST or RESTful API</b> is an API that conforms to the design principles of the REST, or representational state transfer architectural style. The only requirement is that they align to the following six REST design principles - also known as architectural constraints:</p>
+        <ul>
+            <li>Uniform Interface <span class="opacity">- All API requests for the same resource should look the same, no matter where the request comes from.</span></li>
+            <li>Client-server decoupling <span class="opacity">- Client and server applications must be completely independent of each other with the only interaction being via the REST API.</span></li>
+            <li>Statelessness <span class="opacity">- Each request needs to include all the information necessary for processing it.</span></li>
+            <li>Cacheability <span class="opacity">- When possible, resources should be cacheable on the client or server side to improve performance and for scalability.</span></li>
+            <li>Layered system architecture <span class="opacity">- The calls and responses go through different layers, and neither the client nor the server can tell whether it communicates with the end application or an intermediary.</span></li>
+            <li>Code on Demand (optional) <span class="opacity">-  In certain cases, responses may contain executable code (such as Java applets). In such cases, the code should only run on-demand.</span></li>
+        </ul>
+        <p>When a RESTful API is called, the server will transfer to the client a representation of the state of the requested resource. The representation of the state can be in a JSON format, and probably for most APIs, this is indeed the case. It can also be in XML or HTML format.</p>
+        <p>REST is an architectural style which may use HTTP, FTP or other communication protocols but is widely used with HTTP.</p>
+        <p>REST doesn’t add any specific functionality to HTTP. But is an architectural style that was developed alongside HTTP and most commonly uses HTTP for its application layer protocol. REST was designed for communicating via HTTP requests to perform standard database functions like creating, reading, updating, and deleting records (also known as CRUD) within a resource.</p>
+    </div>
+  </div>
+
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+  <img src="http.jpg" alt="HTTP" style="width:100%">
+    <div class="container">
+      <h3><b>HTTP</b></h3>
+      <h5>What is HTTP and how does it work, <span class="opacity">July 16, 2021</span></h5>
+    </div>
+
+    <div class="container">
+        <p><b>HTTP (HyperText Transfer Protocol)</b> is a client-server application-layer protocol that was originally designed to provide a method for publishing and receiving <b>HTML(HyperText Markup Language)</b> pages on webservers.</p>
+        <p>HTTP functions as a <b>request–response</b> protocol in the <b>client–server</b> computing model using the <b>TCP</b> transport-layer protocol. The client is the application requesting for data or website (eg a web browser) while the server is the application hosting the data or website (the server provides responses to the requests it receives).</p>
+        <p>The main request methods or verbs defined in HTTP for exchanging data include:</p>
+        <ul>
+            <li>GET <span class="opacity">- retrieve data from the web server. This method requests that the target resource transfers a representation of its state.</span></li>
+            <li>PUT <span class="opacity">- requests that the target resource creates or updates its state with the state defined by the representation enclosed in the request.</span></li>
+            <li>POST <span class="opacity">- requests that the target resource processes the representation enclosed in the request according to the semantics of the target resource.</span></li>
+            <li>DELETE <span class="opacity">- requests that the target resource deletes its state.</span></li>
+            <li>PATCH <span class="opacity">- requests that the target resource modifies its state according to the partial update defined in the representation enclosed in the request.</span></li>
+        </ul>
+        <div class="card margin">
+          <img src="working_of_http.png" alt="Working of HTTP" style="width:100%">
+        </div>
+        <p>When developing modern web-applications, the most commonly used application layer protocol is HTTP. It is suitable for serving hypermedia resources in a request-response fashion over the internet. However, when it comes to the Internet of things (IoT), it tends to perform poorly mainly because it was designed to be a reliable but heavy-weight protocol for the world-wide-web. The reasons behind its lack of suitability include:</p>
+        <ul>
+          <li>One-to-one communication <span class="opacity">- HTTP is designed for communication between 2 systems only at a time.</span></li>
+          <li>Synchronous request-response <span class="opacity">- After requesting a resource to the server, the client has to wait for the server to respond. This blocks some system resources like threads, CPU cycles etc.</span></li>
+          <li>Not designed for event-based communication <span class="opacity">- Most of the IoT applications are event based for example switching off a bulb.</span></li>
+          <li>Scalability <span class="opacity">- HTTP connections utilize high system resources especially I/O threads. For every HTTP connection, the client/server has to open an underlying persistent TCP connection as well. The server's load increases with increasing devices.</span></li>
+          <li>High Power Consumption <span class="opacity">- HTTP utilizes heavy system resources.</span></li>
+        </ul>
+        <p>It is noted that the HTTP socket can be upgraded to a <b>websocket</b> to overcome the request-response limitation of HTTP. With a websocket, the server can send data at any time to the client without having to be requested for the data.</p>
+    </div>
+  </div>
+
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+  <img src="CoAP.jpg" alt="CoAP" style="width:100%">
+    <div class="container">
+      <h3><b>CoAP</b></h3>
+      <h5>What is CoAP, <span class="opacity">July 16, 2021</span></h5>
+    </div>
+
+    <div class="container">
+        <p><b>CoAP (Constrained Application Protocol)</b> is a specialized web transfer protocol for use with constrained nodes and constrained networks in the Internet of Things. The protocol is designed for machine-to-machine (M2M) applications such as smart energy and building automation.</p>
+        <p>CoAP can be thought of like HTTP for IoTwith the main differences between HTTP and CoAP being:</p>
+        <ul>
+          <li>Instead of TCP, CoAP uses UDP.</li>
+          <li>CoAP is a lot more light-weight due to its simplicity, and thus draws less power.</li>
+        </ul>
+        <p>Like HTTP, CoAP is based on the wildly successful REST model: Servers make resources available under a URL, and clients access these resources using methods such as GET, PUT, POST, and DELETE.</p>
+        <p>CoAP is designed to easily translate to HTTP for simplified integration with the web, while also meeting specialized requirements such as multicast support, very low overhead, and simplicity.</p>
+        <p>CoAP has been designed to work on microcontrollers with as low as 10 KiB of RAM and 100 KiB of code space.</p>
+        <p>CoAP is designed to use minimal resources, both on the device and on the network.</p>
+        <ul>
+          <li>On the device, CoAP has been designed to work on microcontrollers with as low as 10 KiB of RAM and 100 KiB of code space.</li>
+          <li>On the network, Instead of a complex transport stack, it gets by with UDP on IP. A 4-byte fixed header and a compact encoding of options enables small messages that cause no or little fragmentation on the link layer.</li>
+        </ul>
+    </div>
+  </div>
+
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+  <img src="mqtt.webp" alt="MQTT" style="width:100%">
+    <div class="container">
+      <h3><b>MQTT</b></h3>
+      <h5>What is MQTT, <span class="opacity">July 16, 2021</span></h5>
+    </div>
+
+    <div class="container">
+        <p><b>MQTT (Message Queuing Telemetry Transport)</b> is a lightweight, publish-subscribe messaging transport protocol that is ideal for connecting remote devices with a small code footprint and minimal network bandwidth.</p>
+        <p>MQTT allows for messaging between device to cloud and cloud to device. This makes for easy broadcasting messages to groups of things. It makes use of a broker.</p>
+        <p>The <b>MQTT broker</b> is software running on a computer (running on-premises or in the cloud) which acts as a post office. MQTT doesn't use the address of the intended recipient but uses the subject line called “Topic”, and anyone who wants a copy of that message will subscribe to that topic. Multiple clients can receive the message from a single broker (one to many capability). Similarly, multiple publishers can publish topics to a single subscriber (many to one).</p>
+        <p>MQTT uses Transport Layer Security (TLS) encryption with user name, password protected connections, and optional certifications that requires clients to provide a certificate file that matches with the server’s. The clients are unaware of each other's IP address.</p>
+        <p>MQTT message types include: Connect, Disconnect and Publish.</p>
+        <p>MQQT offers <b>QoS(Quality of Service)</b> levels:</p>
+        <ul>
+          <li>At most once <span class="opacity">- fire and forget(no acknowledgements).</span></li>
+          <li>At least once <span class="opacity">- acknowledged delivery(retry until acknowledged).</span></li>
+          <li>Exactly once <span class="opacity">- assured delivery(two-level handshake to ensure only one copy of the message is received).</span></li>
+        </ul>
+    </div>
+  </div>
+<!-- END BLOG ENTRIES -->
+</div>
+
+<!-- Introduction menu -->
+<div class="col l4">
+  <!-- About Card -->
+  <a href = "https://alvynez.github.io"  target="_blank" style="text-decoration: none;">
+    <div class="card margin margin-top">
+        <img src="../avatar.jpg" style="width:100%">
+        <div class="container white">
+            <h4><b>Alvyne Wamwea Mwaniki</b></h4>
+            <p></p>
+        </div>
+    </div>
+  </a>
+  <hr>
+  
+  <!-- Posts -->
+  <div class="card margin">
+    <div class="container padding">
+      <h4>Other Posts</h4>
+    </div>
+    <ul class="ul hoverable white">
+      <a href = "https://alvynez.github.io/blogs/version_control/version_control.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../version_control/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">Version Control</span><br>
+            <span>Git vs Github</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/microcontrollers/microcontrollers.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+              <img src="../microcontrollers/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+              <span class="large">Microcontrollers</span><br>
+              <span>Microcontrollers vs microprocessors</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/2_factor_authentication/2_factor_authentication.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../2_factor_authentication/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">2 Factor Authentication</span><br>
+            <span>What is 2FA</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/osi_model/osi_model.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+              <img src="../osi_model/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">OSI Model</span><br>
+            <span>Basics of the OSI Networking Reference Model</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/gsm_and_gprs/gsm_and_gprs.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../gsm_and_gprs/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">GSM and GPRS</span><br>
+            <span>Basics of GSM, How SMS & calls are mapped</span>
+          </div>
+        </li>
+      </a>
+    </ul>
+  </div>
+  <hr> 
+ 
+  <!-- Labels / tags -->
+  <div class="card margin">
+    <div class="container padding">
+      <h4>Tags</h4>
+    </div>
+    <div class="container white">
+    <p><span class="tag light-grey small margin-bottom">IoT</span>
+      <span class="tag light-grey small margin-bottom">Internet of Things</span>
+      <span class="tag light-grey small margin-bottom">Networking</span>
+      <span class="tag light-grey small margin-bottom">Communication Protocols</span>
+      <span class="tag light-grey small margin-bottom">Internet Protocols</span>
+    </p>
+    </div>
+  </div>
+  
+<!-- END Introduction Menu -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END content -->
+</div>
+
+<!-- Footer -->
+<footer class="container dark-grey padding-32 margin-top">
+  <p>Research Work done while at <a href="https://www.gearbox.co.ke/" target="_blank">Gearbox Kenya</a></p>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+</body>
+</html>

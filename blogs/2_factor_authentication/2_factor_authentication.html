@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<title>2 Factor Authentication</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../blog_style.css">
+<link rel="stylesheet" href="../google_fonts.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="light-grey">
+
+<!-- content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="container center padding-32"> 
+  <h1><b>2 FACTOR AUTHENTICATION</b></h1>
+  <p>Welcome to the blog of <span class="tag">2FA</span></p>
+</header>
+
+<!-- Grid -->
+<div class="row">
+
+<!-- Blog entries -->
+<div class="col l8 s12">
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+    <img src="MFA_factors.png" alt="Version Control" style="width:100%">
+    <div class="container">
+        <h3><b>MULTI-FACTOR AUTHENTICATION</b></h3>
+        <h5>How multi-factor authentication improves cybersecurity, <span class="opacity">July 16, 2021</span></h5>
+    </div>
+
+    <div class="container">
+        <p><b>Computer security</b>, <b>cybersecurity</b> or <b>information technology security</b> is the protection of computer systems and networks from information disclosure, theft of or damage to their hardware, software, or electronic data.</p>
+        <p><b>Multi-factor authentication</b> (MFA; encompassing two-factor authentication[2FA], along with similar terms) is an electronic authentication method in which a user is granted access to a website or application only after successfully presenting two or more pieces of evidence (or factors) to an authentication mechanism.</p>
+        <p>The factors used to provide proof of identity include:</p>
+        <ul>
+            <li>Knowledge <span class="opacity">Something only the user knows (eg a Password)</span></li>
+            <li>Possession <span class="opacity">Something only the user has (eg a Credit Card)</span></li>
+            <li>Inherence <span class="opacity">Something only the user is (eg a Fingerprint)</span></li>
+        </ul>
+        <p>MFA protects the user from an unknown person trying to access their data such as personal ID details or financial assets.</p>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+    <img src="header.jpg" alt="Version Control" style="width:100%">
+    <div class="container">
+        <h3><b>2 FACTOR AUTHENTICATION</b></h3>
+        <h5>What is 2FA, <span class="opacity">July 16, 2021</span></h5>
+    </div>
+
+    <div class="container">
+        <p><b>2 Factor Authentication</b> is a subset of MultiFactor Authentication that uses 2 factors to prove the user's identity.</p>
+        <p>Two-factor authentication can be used to strengthen the security of an online account, a smartphone, or even a door. Before the secured entity is accessed, the user must provide the two required authentication factors.</p>
+        <p>Authentication takes place when someone tries to log into a computer resource (such as a network, device, or application). Password-protection is the most commonly implemented method of authentication but that has led to malicious hackers to invent multiple attacks to acquire passwords. As a result, passwords alone can no longer be used to implement cybersecurity.</p>
+        <p>Types of 2FA include:</p>
+        <ul>
+            <li>Authenticator App / TOTP (Time-based One Time Password) <span class="opacity">- part of the OATH(Open authentication) architecture and is a phone-based option for 2FA which uses an application that generates codes locally based on a secret key every 30 seconds or so. The user would then enter the code during logging in. Eg Google Authenticator.</span></li>
+            <li>Push-based 2FA <span class="opacity">- works by sending a prompt to one of the user's devices during login. The prompt indicates the estimated location of the log in attempt and allows the user to approve or deny the attempt. Eg Duo Push and Apple’s Trusted Devices method.</span></li>
+            <li>Security key / FIDO U2F(Universal Second Factor) <span class="opacity">- a relatively new style of 2FA, typically using small USB, NFC or Bluetooth Low Energy (BTLE) devices often called “security keys”. The U2F device is registered with a site then during logins, the user is prompted to connect the device and tap it to allow the login.</span></li>
+        </ul>
+        <p>Note: critics argue that text messages are not a true form of 2FA since they are not something the user already has but rather something the user is sent, and the sending process is vulnerable. Instead, the critics argue that this process should be called <b>two-step verification</b>.</p>
+    </div>
+  </div>
+<!-- END BLOG ENTRIES -->
+</div>
+
+<!-- Introduction menu -->
+<div class="col l4">
+  <!-- About Card -->
+  <a href = "https://alvynez.github.io"  target="_blank" style="text-decoration: none;">
+    <div class="card margin margin-top">
+        <img src="../avatar.jpg" style="width:100%">
+        <div class="container white">
+            <h4><b>Alvyne Wamwea Mwaniki</b></h4>
+            <p></p>
+        </div>
+    </div>
+  </a>
+  <hr>
+  
+  <!-- Posts -->
+  <div class="card margin">
+    <div class="container padding">
+      <h4>Other Posts</h4>
+    </div>
+    <ul class="ul hoverable white">
+      <a href = "https://alvynez.github.io/blogs/version_control/version_control.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../version_control/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">Version Control</span><br>
+            <span>Git vs Github</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/microcontrollers/microcontrollers.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../microcontrollers/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">Microcontrollers</span><br>
+            <span>Microcontrollers vs microprocessors</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/iot_networking/iot_networking.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../iot_networking/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">IoT Networks</span><br>
+            <span>IoT Networking and Communication</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/osi_model/osi_model.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+              <img src="../osi_model/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">OSI Model</span><br>
+            <span>Basics of the OSI Networking Reference Model</span>
+          </div>
+        </li>
+      </a>
+      <a href = "https://alvynez.github.io/blogs/gsm_and_gprs/gsm_and_gprs.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../gsm_and_gprs/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">GSM and GPRS</span><br>
+            <span>Basics of GSM, How SMS & calls are mapped</span>
+          </div>
+        </li>
+      </a>
+    </ul>
+  </div>
+  <hr> 
+ 
+  <!-- Labels / tags -->
+  <div class="card margin">
+    <div class="container padding">
+      <h4>Tags</h4>
+    </div>
+    <div class="container white">
+    <p><span class="tag light-grey small margin-bottom">2FA</span>
+      <span class="tag light-grey small margin-bottom">2 Factor Authentication</span>
+      <span class="tag light-grey small margin-bottom">Electronic Authentication</span>
+      <span class="tag light-grey small margin-bottom">Infromation Security</span>
+      <span class="tag light-grey small margin-bottom">Cybersecurity</span>
+    </p>
+    </div>
+  </div>
+  
+<!-- END Introduction Menu -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END content -->
+</div>
+
+<!-- Footer -->
+<footer class="container dark-grey padding-32 margin-top">
+  <p>Research Work done while at <a href="https://www.gearbox.co.ke/" target="_blank">Gearbox Kenya</a></p>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+</body>
+</html>
