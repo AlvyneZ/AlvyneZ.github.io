@@ -1312,7 +1312,7 @@ a:focus {
 
 .contact .container-fluid {
     background: url(../img/contact.png) left center no-repeat;
-    background-size: contain;
+    background-size: 39% auto;
 }
 
 .contact .contact-form {
