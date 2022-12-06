@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<title>STM32 Debugging</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../blog_style.css">
+<link rel="stylesheet" href="../google_fonts.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="light-grey">
+
+<!-- content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="container center padding-32"> 
+  <h1><b>STM32 Debugging</b></h1>
+  <p>Welcome to the blog of <span class="tag">STM32 Debugging Techniques</span></p>
+</header>
+
+<!-- Grid -->
+<div class="row">
+
+<!-- Blog entries -->
+<div class="col l8 s12">
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+    <img src="header.jpg" alt="Detective Debugging" style="width:100%">
+    <div class="container">
+      <h3><b>Debugging</b></h3>
+      <h5>What is Debugging, <span class="opacity">Dec 6, 2022</span></h5>
+    </div>
+
+    <div class="container">
+      <p><b>Debuging</b> describes the the process of identifying and removing errors from computer hardware or software.</p>
+      <p>In the case of embedded systems, it involves both hardware and software. However, we will only cover software debugging here.</p>
+      <p>The microcontroller of choice for exploring this topic is the <b>STM32</b>, and the following are a few of the debugging options offered by the (Eclipse-based) STM32CubeIDE:</p>
+      <ul>
+          <li><b>Stepping</b> - allows code to be executed one line or one block at a time.</li>
+          <ul>
+            <li>Single Stepping <span class="opacity">- executes the current line and goes to the next (will enter function calls).</span></li>
+            <li>Stepping Into <span class="opacity">- enters function calls for line by line execution.</span></li>
+            <li>Stepping Out <span class="opacity">- executes an entire function and stops at the line after the call.</span></li>
+            <li>Stepping Out <span class="opacity">- executes the remaining section of a function and stops where it was originally called.</span></li>
+          </ul>
+          <li><b>Disassembly Window</b> - this view shows the generated assembly mnemonics. The op codes can also be shown. It can be used to debug optimizations done on code.</li>
+          <li><b>Register Window</b> - this view shows the contents of the CPU registers.</li>
+          <li><b>SFR Window</b> - this view shows the contents of the Special Function Registers (peripheral specific registers - from 0x4000_0000 to 0x6000_0000). The registers can also be written to in this view.</li>
+          <li><b>Memory Browser</b> - this view allows the viewing of data in any address. The data can then be downloaded and saved to file for later analysis.</li>
+          <li><b>Expression and Variable Windows</b> - these views show the data stored in a variable. The expresssion window can perform calculations on that data to give more useful information.</li>
+          <li><b>Breakpoints</b> - these are used to mark code addresses where code execution is to be halted/stopped for memory, register or variable investigation.</li>
+          <li><b>Data watch Points</b> - they halt/stop the execution when a specified variable is read or written. It is useful when code has multiple contributors.</li>
+          <li><b>Call Stack & Fault Analyser</b> - this view shows any expressions thrown and the functions call stack prior to an execution halt.</li>
+      </ul>
+      <p>The above debugging tools do not require much setting up and are pretty straight-forward to use. There are 3 other debugging techniques, that require a bit of setting up:</p>
+      <ul>
+        <li><b>Serial Wire View (SWV)</b> - (Cortex M3/4/7 only) allows for system tracing with minute performace impact.</li>
+        <li><b>Open On Chip Debugger (Open OCD) & Semihosting</b> - allows sending text to the host machine using printf.</li>
+        <li><b>SEGGER SystemView</b> - real-time recording and visualization tool that reveals the true runtime behavior of an application.</li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+  <img src="sync-trans.jpg" alt="Serial Data Transmission" style="width:100%">
+    <div class="container">
+      <h3><b>Need for SWV</b></h3>
+      <h5>Why use Serial Wire View, <span class="opacity">Dec 6, 2021</span></h5>
+    </div>
+
+    <div class="container">
+        <p><b>Application traces</b> are detailed records/logs of the actions performed by the application, and of messages about events that occurred during operation of the application. They are important in the debugging phase of an application.</p>
+        <p>Standard output peripherals (eg UART) may be used to get the trace from the MCU, however, this solution is normally intrusive because of the following reasons:</p>
+        <ul>
+          <li>Interrupt-driven <span class="opacity">- the frequency of interruptions may be very high resulting in performance that is different from the real-world case.</span></li>
+          <li>Polling-driven <span class="opacity">- the waiting time for transmission alters the performance even more.</span></li>
+        </ul>
+        <p>The <b>SWO (Serial Wire Output) trace pin</b> is a hardware feature of ARM Cortex M3 and above, that addresses this problem. It allows the tracing of system activities and memory without having big impaction on the performance. </p>
+    </div>
+  </div>
+
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+  <img src="cpu_internal_swv.png" alt="Cortex M ITM/SWV block diagram" style="width:100%">
+    <div class="container">
+      <h3><b>Working of SWV</b></h3>
+      <h5>How the SWV trace works, <span class="opacity">Dec 6, 2021</span></h5>
+    </div>
+
+    <div class="container">
+        <p><b>SWD (Serial Wire Debug)</b> is a 2-signal interface (SWDIO, SWCLK) which is one of the features of the Arm CoreSight™ debug and trace technology. It is ARM's alternative to the de facto debugging standard, <b>JTAG</b>, which is a 4-signal interface (TCK, TMS, TDI, TDO).</p>
+        <p>Contrary to JTAG, which chains TAPs together, SWD uses a bus called <b>DAP (Debug Access Port)</b>, which connects the Debug port (DP) to multiple Access Ports (AP). There are three different Debug Ports available to access the DAP:</p>
+        <ul>
+            <li>JTAG Debug Port (JTAG-DP) <span class="opacity">- uses the standard 4-signal JTAG interface and protocol to access the DAP.</span></li>
+            <li>Serial Wire Debug Port (SW-DP) <span class="opacity">- uses the 2-signal SWD protocol to access the DAP.</span></li>
+            <li>Serial Wire / JTAG Debug Port (SWJ-DP) <span class="opacity">- can use either JTAG or SWD to access the DAP with the TMS and TCK JTAG signals reused to transfer the SWDIO and SWDCLK signals respectively.</span></li>
+        </ul>
+        <p>ARM Cortex M3 and above have an internal peripheral known as the <b>Instrumentation Trace MacroCell (ITM)</b> which allows sending software-generated debug messages through a specific signal I/O named <b>Serial Wire Output (SWO)</b>.</p>
+        <p>When using SWD, the TDO signal of the SWJ-DP can be used to provide trace event messages via the Serial Wire Output (SWO).</p>
+        <p><b>SWV (Serial Wire Viewer)</b> is the protocol used on the SWO pin to exchange data with the debugger probe.  Its communication speed is proportional to the MCU speed. To properly decode the bytes sent over the SWO pin, the host debugger needs to know the frequencies of the CPU and SWO pin.</p>
+        <p>The protocol allows for upto 32 channels (referred to as "stimulus ports") to allow for categorizing of data.</p>
+        <p>For SWV to be used, the debugger probe must have the SWO pin exposed. Any original ST’s board has an integrated ST-LINK/V2 debugger which supports SWO to trace ITM outputs on Cortex-M3 and above. That debugger can be used to program and debug an external MCU on other board.</p>
+    </div>
+  </div>
+
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+  <img src="registers_itm.png" alt="Enable ITM" style="width:100%">
+    <div class="container">
+      <h3><b>SWV Data logging Trace</b></h3>
+      <h5>Code for SWV Data logging, <span class="opacity">Dec 6, 2021</span></h5>
+    </div>
+
+    <div class="container">
+        <p>The ITM peripheral like every other peripheral must be enabled before use. The chosen stimulus port must also be enabled.</p>
+        <div class="card margin">
+          <img src="enable_itm.png" alt="Enable ITM" style="width:100%">
+        </div>
+        <p>Then code for sending characters to the ITM buffer is required as shown below:</p>
+        <div class="card margin">
+          <img src="send_itm.png" alt="Send char to ITM" style="width:100%">
+        </div>
+        <p>Then the low-level weak <b>_write()</b> function used in the standard libraries {stdio} is overridden to use ITM_SendChar() instead of __io_putchar(). The _write() function is called by printf().</p>
+        <div class="card margin">
+          <img src="write_func.png" alt="Overridden _write()" style="width:100%">
+        </div>
+        <p>The code files can be found here (<a href = "./itm_related_code.c">.c</a> and <a href = "./itm_related_code.h">.h</a>) and added to the code base appropriately.</p>
+    </div>
+  </div>
+<!-- END BLOG ENTRIES -->
+</div>
+
+<!-- Introduction menu -->
+<div class="col l4">
+  <!-- About Card -->
+  <a href = "../../index.html"  target="_blank" style="text-decoration: none;">
+    <div class="card margin margin-top">
+        <img src="../avatar.jpg" style="width:100%">
+        <div class="container white">
+            <h4><b>Alvyne Wamwea Mwaniki</b></h4>
+            <p></p>
+        </div>
+    </div>
+  </a>
+  <hr>
+  
+  <!-- Posts -->
+  <div class="card margin">
+    <div class="container padding">
+      <h4>Other Posts</h4>
+    </div>
+    <ul class="ul hoverable white">
+      <a href = "../version_control/version_control.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../version_control/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">Version Control</span><br>
+            <span>Git vs Github</span>
+          </div>
+        </li>
+      </a>
+      <a href = "../microcontrollers/microcontrollers.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+              <img src="../microcontrollers/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+              <span class="large">Microcontrollers</span><br>
+              <span>Microcontrollers vs microprocessors</span>
+          </div>
+        </li>
+      </a>
+      <a href = "../2_factor_authentication/2_factor_authentication.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../2_factor_authentication/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">2 Factor Authentication</span><br>
+            <span>What is 2FA</span>
+          </div>
+        </li>
+      </a>
+      <a href = "../osi_model/osi_model.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+              <img src="../osi_model/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">OSI Model</span><br>
+            <span>Basics of the OSI Networking Reference Model</span>
+          </div>
+        </li>
+      </a>
+      <a href = "../gsm_and_gprs/gsm_and_gprs.html" style="text-decoration: none;">
+        <li class="padding-16">
+          <div style="display:inline-block; vertical-align: top; padding-top: 10px;">
+            <img src="../gsm_and_gprs/header.jpg" alt="Image" class="left margin-right" style="width:50px">
+          </div>
+          <div style="display:inline-block">
+            <span class="large">GSM and GPRS</span><br>
+            <span>Basics of GSM, How SMS & calls are mapped</span>
+          </div>
+        </li>
+      </a>
+    </ul>
+  </div>
+  <hr> 
+ 
+  <!-- Labels / tags -->
+  <div class="card margin">
+    <div class="container padding">
+      <h4>Tags</h4>
+    </div>
+    <div class="container white">
+    <p><span class="tag light-grey small margin-bottom">STM32</span>
+      <span class="tag light-grey small margin-bottom">Embedded Systems</span>
+      <span class="tag light-grey small margin-bottom">Debugging</span>
+      <span class="tag light-grey small margin-bottom">SWV</span>
+      <span class="tag light-grey small margin-bottom">SWD</span>
+    </p>
+    </div>
+  </div>
+  
+<!-- END Introduction Menu -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END content -->
+</div>
+
+<!-- Footer -->
+<footer class="container dark-grey padding-32 margin-top">
+  <p>Research Work done while at <a href="https://www.sayarilabs.ke/" target="_blank">SayariLabs Kenya</a></p>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+</body>
+</html>
