@@ -69,7 +69,7 @@ and is wrapped around the whole page content, except for the footer in this exam
   <img src="sync-trans.jpg" alt="Serial Data Transmission" style="width:100%">
     <div class="container">
       <h3><b>Need for SWV</b></h3>
-      <h5>Why use Serial Wire View, <span class="opacity">Dec 6, 2021</span></h5>
+      <h5>Why use Serial Wire View, <span class="opacity">Dec 6, 2022</span></h5>
     </div>
 
     <div class="container">
@@ -88,7 +88,7 @@ and is wrapped around the whole page content, except for the footer in this exam
   <img src="cpu_internal_swv.png" alt="Cortex M ITM/SWV block diagram" style="width:100%">
     <div class="container">
       <h3><b>Working of SWV</b></h3>
-      <h5>How the SWV trace works, <span class="opacity">Dec 6, 2021</span></h5>
+      <h5>How the SWV trace works, <span class="opacity">Dec 6, 2022</span></h5>
     </div>
 
     <div class="container">
@@ -112,7 +112,7 @@ and is wrapped around the whole page content, except for the footer in this exam
   <img src="registers_itm.png" alt="Enable ITM" style="width:100%">
     <div class="container">
       <h3><b>SWV Data logging Trace</b></h3>
-      <h5>Code for SWV Data logging, <span class="opacity">Dec 6, 2021</span></h5>
+      <h5>Code for SWV Data logging, <span class="opacity">Dec 6, 2022</span></h5>
     </div>
 
     <div class="container">
@@ -124,11 +124,40 @@ and is wrapped around the whole page content, except for the footer in this exam
         <div class="card margin">
           <img src="send_itm.png" alt="Send char to ITM" style="width:100%">
         </div>
-        <p>Then the low-level weak <b>_write()</b> function used in the standard libraries {stdio} is overridden to use ITM_SendChar() instead of __io_putchar(). The _write() function is called by printf().</p>
+        <p>Then the low-level weak <b>_write()</b> function defined in syscalls.c is overridden to use ITM_SendChar() instead of __io_putchar(). The _write() function is called by printf() which is prototyped in standard libraries {stdio.h}.</p>
         <div class="card margin">
           <img src="write_func.png" alt="Overridden _write()" style="width:100%">
         </div>
         <p>The code files can be found here (<a href = "./itm_related_code.c">.c</a> and <a href = "./itm_related_code.h">.h</a>) and added to the code base appropriately.</p>
+        <p><b>Note:</b> (Some troubleshooting pointers if it does not work)</p>
+        <ul>
+          <li>The printf strings need to end with a "\n" in order for the IDE to print it out.</li>
+          <li>The SWO pin must NOT be used for another function (check the datasheet for the SWO pin).</li>
+        </ul>
+    </div>
+  </div>
+
+  <!-- Blog entry -->
+  <div class="card-4 margin white">
+  <img src="cubeide_open_debug.png" alt="STm32CubeIDE open debug configuration" style="width:100%">
+    <div class="container">
+      <h3><b>SWV IDE setup</b></h3>
+      <h5>Setup for SWV Data logging viewing, <span class="opacity">Dec 6, 2022</span></h5>
+    </div>
+
+    <div class="container">
+        <p>This section provides the procedure of setting up STM32CubeIDE for receiving and displaying the trace. The following image shows the debug configuration required for the project:</p>
+        <div class="card margin">
+          <img src="debug_config.png" alt="Debug Configuration" style="width:100%">
+        </div>
+        <p>The following image shows how to open the SWV window:</p>
+        <div class="card margin">
+          <img src="open_swv.png" alt="Open Serial Wire Viewer" style="width:100%">
+        </div>
+        <p>The following image shows the SWV configuration:</p>
+        <div class="card margin">
+          <img src="swv_config.png" alt="SWV configuration" style="width:100%">
+        </div>
     </div>
   </div>
 <!-- END BLOG ENTRIES -->
